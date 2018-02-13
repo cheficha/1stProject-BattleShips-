@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{76496AFE-BBFC-4363-9C34-CB45EAA65C00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Battleships</RootNamespace>
+    <AssemblyName>Battleships</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.8.1\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BattleshipsEngine\Engine.cs" />
+    <Compile Include="BattleshipsEngine\Providers\CommandParser.cs" />
+    <Compile Include="BattleshipsEngine\Contracts\IComputerPlayer.cs" />
+    <Compile Include="BattleshipsEngine\Contracts\IEngine.cs" />
+    <Compile Include="BattleshipsEngine\Providers\CommandProcessor.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ConsoleReader.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ConsoleWriter.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ContractsOfProviders\IReader.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ContractsOfProviders\IWriter.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ICommandParser.cs" />
+    <Compile Include="BattleshipsEngine\Providers\ICommandProcessor.cs" />
+    <Compile Include="Commands\BeginPlayCommand.cs" />
+    <Compile Include="Commands\CreateAircraftCarrierCommand.cs" />
+    <Compile Include="Commands\CreateBattleCruiserCommand.cs" />
+    <Compile Include="Commands\CreateDestroyerCommand.cs" />
+    <Compile Include="Commands\CreateFrigateCommand.cs" />
+    <Compile Include="Commands\CreatePlayerCommand.cs" />
+    <Compile Include="Commands\CreateSubmarineCommand.cs" />
+    <Compile Include="Commands\FireAtCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\GameObjectElementType.cs" />
+    <Compile Include="Enums\ShipType.cs" />
+    <Compile Include="Factory\BattleShipFactory.cs" />
+    <Compile Include="Factory\CommandFactory.cs" />
+    <Compile Include="Factory\IBattleShipFactory.cs" />
+    <Compile Include="Factory\ICommandFactory.cs" />
+    <Compile Include="Models\AircraftCarrier.cs" />
+    <Compile Include="Models\Battlecruiser.cs" />
+    <Compile Include="Models\Battlefield.cs" />
+    <Compile Include="Models\Contracts\IBattlefield.cs" />
+    <Compile Include="Models\Contracts\IGameObject.cs" />
+    <Compile Include="Models\Contracts\IGameObjectElement.cs" />
+    <Compile Include="Models\Contracts\IPlayer.cs" />
+    <Compile Include="Models\Contracts\IShip.cs" />
+    <Compile Include="Models\Contracts\IShipElement.cs" />
+    <Compile Include="Models\Contracts\IWater.cs" />
+    <Compile Include="Models\Destroyer.cs" />
+    <Compile Include="Models\Frigate.cs" />
+    <Compile Include="Models\GameObjectElement.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\Submarine.cs" />
+    <Compile Include="Models\Water.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\AlreadyFiredThereException.cs" />
+    <Compile Include="Utilities\Contracts\IPosition.cs" />
+    <Compile Include="Utilities\Position.cs" />
+    <Compile Include="View\BattlefieldSegment.cs" />
+    <Compile Include="View\Common\ConsoleFontTooLargeException.cs" />
+    <Compile Include="View\Common\ViewSettings.cs" />
+    <Compile Include="View\Contracts\IGameInfoSegment.cs" />
+    <Compile Include="View\Contracts\IInOutSegment.cs" />
+    <Compile Include="View\Contracts\IBattlefieldSegment.cs" />
+    <Compile Include="View\Contracts\IInput.cs" />
+    <Compile Include="View\Contracts\IOutput.cs" />
+    <Compile Include="View\Contracts\IView.cs" />
+    <Compile Include="View\EnemyBattlefieldSegment.cs" />
+    <Compile Include="View\Enums\ConsoleSettings.cs" />
+    <Compile Include="View\Enums\ViewType.cs" />
+    <Compile Include="View\Contracts\IViewSegment.cs" />
+    <Compile Include="View\GameInfoSegment.cs" />
+    <Compile Include="View\InOutSegment.cs" />
+    <Compile Include="View\PlayerBattlefieldSegment.cs" />
+    <Compile Include="View\ConsoleView.cs" />
+    <Compile Include="View\ViewSegment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BattleshipsClassDiagram.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
